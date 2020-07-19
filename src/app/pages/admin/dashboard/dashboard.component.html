@@ -1,0 +1,17 @@
+<section class="main-container">
+
+  <app-navbar></app-navbar>
+
+  <section class="box-container">
+    <div class="body-submenu">
+      <ul>
+        <li *ngFor="let list of listMenu">
+          <a [routerLink]="[list.link]" routerLinkActive="body-submenu-active-list">{{ list.name }}</a>
+        </li>
+      </ul>
+    </div>
+    <router-outlet></router-outlet>
+  </section>
+
+
+</section>

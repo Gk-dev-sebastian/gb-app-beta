@@ -1,0 +1,64 @@
+
+/*====================
+    table
+======================*/
+
+.body-box-container table {
+
+  width: 100%;
+  min-width: 900px;
+  border-collapse: collapse;
+  color: #f1f1f1;
+  font-family: Arial, Helvetica, sans-serif;
+  text-transform: capitalize !important;
+
+}
+
+.body-box-container table thead{
+  background-color: #8E0025;
+  text-transform: uppercase;
+  font-size: 18px;
+}
+
+table thead tr th:nth-child(1){
+  border-radius:  10px 0px 0px 10px;
+}
+table thead tr th:nth-last-child(1){
+  border-radius: 0px 10px 10px 0px;
+}
+
+.body-box-container table thead th{
+  box-sizing: border-box;
+  padding: 10px 0px;
+}
+
+.body-box-container table tbody tr{
+  transition: all 1s ease;
+  cursor: pointer;
+  outline: none;
+}
+
+.body-box-container table tbody tr td{
+ padding: 10px 0px;
+ text-align: center;
+ border-bottom:solid 2px #383838;
+ font-size: 14px;
+ transition: all 1s ease;
+}
+
+.body-box-container table tbody tr:hover{
+ background-color: #2e2e2e;
+}
+
+/**/
+
+.empty-list{
+  width: 100%;
+  text-align: center;
+  padding-top: 20px;
+  color: #f1f1f1;
+  font-family: Arial, Helvetica, sans-serif;
+  text-transform: capitalize !important;
+}
+
+

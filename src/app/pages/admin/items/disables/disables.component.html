@@ -1,0 +1,46 @@
+
+
+  <div class="body-box-container animate__animated animate__fadeIn">
+    <cdk-virtual-scroll-viewport itemSize="10" class="table-scroll-items">
+    <table *ngIf="items">
+        <thead>
+            <tr>
+                <th style="text-transform: capitalize;">Item</th>
+                <th style="text-transform: capitalize;">Status</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        <ng-container *cdkVirtualFor="let item of items">
+            <tr style="cursor: default !important;">
+                    <td>
+                        {{ item.product }}-
+                        {{ item.brand }}-
+                        {{ item.model }}-
+                        {{ item.color }}-
+                        {{ item.size }}
+                    </td>
+                    <td>
+                        {{ item.active }}
+                    </td>
+                    <td>
+                      <button class=""
+                              (click)="reactive( item.id )">
+                         Reactive
+                      </button>
+                    </td>
+                    <td>
+                      <button class=""
+                              (click)="delete( item.id )">
+                         Delete
+                      </button>
+                    </td>
+            </tr>
+        </ng-container>
+        </tbody>
+    </table>
+    </cdk-virtual-scroll-viewport>
+  </div>
+
+

@@ -1,0 +1,156 @@
+/*=========================
+          Items
+===========================*/
+
+.box-item{
+  width: 100%;
+  min-width: 900px;
+  background-color: #1A1A1A;
+  border: solid 2px #444444;
+  border-radius: 20px;
+  padding: 20px;
+  box-sizing: border-box;
+  color: #f1f1f1;
+  font-family: helvetica;
+  letter-spacing: 1px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+}
+
+/*box title in general-styles*/
+
+.item-data{
+  width: 100%;
+  margin: 20px 0px;
+  padding: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.item-data img{
+  width: 130px;
+  height: auto;
+  border-radius: 10px;
+  border: solid 4px  #F70035;
+  margin-left: 30px;
+}
+
+.item-data ul {
+  max-width: 280px;
+  margin: 0px 20px 0px 30px;
+  overflow: hidden;
+}
+
+.item-data ul,
+.item-data li{
+  padding: 0px;
+  list-style: none;
+}
+
+.item-data li{
+  font-size: 14px;
+  font-style: italic;
+}
+
+/*======================
+    item qty
+========================*/
+
+.qty-box{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 20px;
+  border-radius: 20px;
+}
+
+.qty-box div {
+  color: #dddddd;
+  font-family: helvetica;
+  letter-spacing: 1px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.qty-buttons-r{
+  display: block;
+  width: 60px;
+  height: 30px;
+  background-color: rgb(66, 66, 66);
+  font-weight: 600;
+  border: none;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+  line-height: 30px;
+  text-align: center;
+  color: #f1f1f1;
+  font-family: arial, helvetica;
+  font-weight: bolder;
+  text-decoration: none;
+  outline: none;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 1s ease;
+}
+
+.qty-number-box{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.qty-number-box > div{
+  background-color: #1A1A1A;
+  text-align: center;
+  line-height: 26px;
+  width: 200px;
+  height: 26px;
+  border-bottom: solid 2px rgb(66, 66, 66);
+  border-top: solid 2px rgb(66, 66, 66);
+}
+
+.qty-buttons-l{
+  display: block;
+  width: 60px;
+  height: 30px;
+  background-color: rgb(66, 66, 66);
+  font-weight: 600;
+  border: none;
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+  line-height: 30px;
+  text-align: center;
+  color: #f1f1f1;
+  font-family: arial, helvetica;
+  font-weight: bolder;
+  text-decoration: none;
+  outline: none;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 1s ease;
+}
+
+.last-change-qty{
+  border: solid 2px rgb(66, 66, 66);
+  background-color: #1A1A1A;
+  padding: 10px 40px;
+  border-radius: 10px;
+  font-size: 12px;
+  font-style: italic;
+  margin-right: 20px;
+
+}
+
+.last-change-qty p {
+  padding: 5px 0px;
+  margin: 0px;
+}
+
+.qty-number{
+  background-color: #1A1A1A;
+  padding: 0px 5px;
+}

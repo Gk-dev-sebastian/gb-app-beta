@@ -1,0 +1,21 @@
+
+ <div class="search-container">
+
+    <div class="top-search-container">
+
+    <input type="text"
+           placeholder="Search..."
+           #term
+           name="term"
+           (keyup)="search( term.value )"
+           name="search">
+
+    <a routerLink="/neworder" class="new-element-button">
+        <img src="../../../../../assets/img/icons/orders.png" alt="">
+        <p>New</p>
+    </a>
+
+    </div>
+
+ </div>
+

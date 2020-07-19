@@ -1,0 +1,9 @@
+
+<div class="body-submenu">
+  <ul>
+    <li *ngFor="let list of listMenu">
+      <a [routerLink]="[list.link]" routerLinkActive="body-submenu-active-list">{{ list.name }}</a>
+    </li>
+  </ul>
+</div>
+

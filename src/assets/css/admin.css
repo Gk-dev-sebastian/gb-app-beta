@@ -1,0 +1,88 @@
+/*================================
+              admin
+=================================*/
+
+/* user */
+/* new user */
+
+.newUser-box{
+  overflow: hidden;
+  margin-top: 40px;
+  width: 100%;
+  min-width: 900px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px 0px;
+  border-radius: 15px;
+  background-color: #0a0a0a;
+}
+
+.newUser-box input{
+  max-width: 300px;
+  margin: 5px 0px;
+}
+
+.newUser-box h1{
+  padding: 0px;
+  margin-top: 0px;
+  margin-bottom: 10px;
+  color: #f1f1f1;
+  font-size: 24px;
+  font-family: 'gb-font', helvetica;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.newUser-box p{
+  color: #F70035;
+  text-decoration: underline;
+  font-family: helvetica;
+}
+
+.form-row{
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  padding: 0px;
+  margin-top: 7px;
+}
+
+.newUser-box .select-control{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 30px;
+  box-sizing: border-box;
+  margin-bottom: 5px;
+  margin-top: 4px;
+  background-color: #1A1A1A;
+  border: solid 2px #808080;
+  border-radius: 30px;
+}
+
+.newUser-box label{
+  color: #f1f1f1;
+  font-family: Arial, Helvetica, sans-serif;
+  width: 90px;
+  padding: 0px;
+  margin: 0px;
+}
+
+.newUser-box select{
+  width: 240px;
+  background-color: #1A1A1A;
+  border: none !important;
+  padding: 10px;
+  border-radius: 20px;
+  outline: none;
+  color: #f1f1f1;
+
+}
+
+.newUser-box select option::before{
+  color: #f1f1f1;
+}

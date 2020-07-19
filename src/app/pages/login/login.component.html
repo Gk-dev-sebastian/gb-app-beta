@@ -1,0 +1,44 @@
+
+<section class="main-container">
+
+  <!------------------------------------------------------------->
+
+  <section class="login-container">
+
+      <div class="login-box">
+
+          <h1>Login</h1>
+
+          <p *ngIf="error">{{ error }}</p>
+
+          <form [formGroup]="loginForm"
+                (ngSubmit)="login( loginForm )">
+
+              <div class="form-control">
+                  <input type="text"
+                         placeholder="Email"
+                         formControlName="email"
+                         name="user">
+              </div>
+
+              <div class="form-control">
+                  <input type="password"
+                         placeholder="Pass"
+                         formControlName="pass"
+                         name="pass">
+              </div>
+
+              <input type="submit"
+                     value="login"
+                     class="red-button">
+
+          </form>
+      </div>
+
+  </section>
+
+
+
+  <!------------------------------------------------------------->
+
+</section>

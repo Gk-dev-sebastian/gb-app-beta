@@ -1,0 +1,155 @@
+<div class="header-neworder-container">
+
+  <div>
+
+    <div class="newOrder-search-container">
+
+      <div class="top-search-container">
+
+          <input type="text"
+                 placeholder="Search student..."
+                 name="search"
+                 #studentSearch
+                 class="neworder-input"
+                 (keyup) = "searchStudent( studentSearch.value )">
+
+          <a [routerLink]="['/newStudent', '/neworder']" class="new-element-button">
+              <img src="../../../../../assets/img/icons/students.png" alt="">
+              <p>New</p>
+          </a>
+
+      </div>
+
+      <div class="list-box-container">
+          <cdk-virtual-scroll-viewport itemSize="10" class="scroll-orders">
+          <ul *ngIf="students" class="neworder-list">
+              <ng-container *cdkVirtualFor="let student of students">
+              <li #student
+                  (click)="setStudent( student )">
+                  {{ student.name }}
+                  {{ student.lastname }}
+              </li>
+              </ng-container>
+          </ul>
+          </cdk-virtual-scroll-viewport>
+      </div>
+
+      <div class="total-box" *ngIf="totalStudents">Total Students: {{ totalStudents }}</div>
+
+    </div>
+
+    <div class="newOrder-search-container">
+
+        <div class="top-search-container">
+
+            <input type="text"
+                  placeholder="Search item..."
+                  name="search"
+                  #itemSearch
+                  class="neworder-input"
+                  (keyup) = "searchItem( itemSearch.value )">
+
+            <a  [routerLink]="['/newitem', '/neworder']" class="new-element-button">
+                <img src="../../../../../assets/img/icons/items.png" alt="">
+                <p>New</p>
+            </a>
+
+        </div>
+
+        <div class="list-box-container">
+            <cdk-virtual-scroll-viewport itemSize="10" class="scroll-orders">
+            <ul *ngIf="items" class="neworder-list">
+                <ng-container *cdkVirtualFor="let item of items">
+                <li #item
+                    (click)="setItem( item )" >
+                        {{ item.product}}
+                        - {{ item.brand }}
+                        - {{ item.model }}
+                        - {{ item.color }}
+                        - {{ item.size }}
+                  </li>
+                </ng-container>
+            </ul>
+            </cdk-virtual-scroll-viewport>
+        </div>
+        <div class="total-box" *ngIf="totalItems">Total Items: {{ totalItems }}</div>
+
+    </div>
+
+  </div>
+
+  <div>
+
+    <!--Quantity-->
+    <div class="newOrder-search-container">
+
+          <div class="neworder-form-control">
+            <label for="quantity">Quantity: </label>
+            <input type="number"
+                   value="1"
+                   name="quantity"
+                   #qty
+                   id="quantity"
+                   class="neworder-input-number"
+                   (keyup)=" setQty( qty.value )">
+          </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+<div class="body-box-container">
+
+    <div class="box-horizontal-order">
+
+          <div class="order-data">
+              <ul>
+                  <li class="order-selected">User: {{ user }}</li>
+                  <li *ngIf="!studentSelected" class="order-default"> Student: Select student</li>
+                  <li *ngIf="studentSelected" class="order-selected">
+                      Student:
+                      {{ studentSelected.name }}
+                      {{ studentSelected.lastname }}</li>
+                  <li *ngIf="!itemSelected" class="order-default"> Item: Select item</li>
+                  <li *ngIf="itemSelected" class="order-selected">
+                      Item:
+                      {{ itemSelected.product}}
+                      - {{ itemSelected.brand }}
+                      - {{ itemSelected.model }}
+                      - {{ itemSelected.color }}
+                      - {{ itemSelected.size }}
+                  </li>
+                  <li *ngIf="qtyOrder <= 0" class="order-default">Select Quantity</li>
+                  <li *ngIf="!qtyOrder && !itemSelected" class="order-default">Order Status: Awainting...</li>
+                  <li *ngIf="qtyOrder && itemSelected && qtyOrder <= itemSelected.qty.qty" class="order-selected">Order Status: Ready to Delivery</li>
+                  <li *ngIf="qtyOrder && itemSelected && qtyOrder > itemSelected.qty.qty" class="order-selected">Order Status: Awaiting New Shipment</li>
+              </ul>
+          </div>
+
+          <div class="circle-data" *ngIf="qtyOrder && itemSelected">
+            <h1>Quantity</h1>
+            <h2>{{ qtyOrder }}
+              <p style="color:#ffdd6c;">{{ itemSelected.qty.qty }} in stock.</p>
+            </h2>
+          </div>
+
+          <div class="circle-data"  *ngIf="qtyOrder && itemSelected">
+            <h1>Total</h1>
+            <h2>${{ qtyOrder * itemSelected.price.total | number : '1.1-2' }}
+              <p style="color:#ffdd6c;">${{ itemSelected.price.total | number : '1.1-2' }}</p>
+            </h2>
+          </div>
+
+    </div>
+
+    <button (click)="saveOrder()"
+    class="red-button">Save order</button>
+
+</div>
+
+<a routerLink="/listorder/listPend" class="icon-button float-button">
+  <img src="../../../../../assets/img/icons/back.png" alt="">
+</a>
+

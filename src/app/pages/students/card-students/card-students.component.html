@@ -1,0 +1,625 @@
+<section  class="card-container">
+
+    <div class="att-card" *ngIf="student">
+
+      <div class="card-header">
+          <div class="card-photo">
+              <img [src]=" student.photo.url" alt="">
+          </div>
+          <div class="card-data">
+              <div class="card-name">
+                  <h2  style="text-transform: capitalize;">{{ student.name }} {{ student.lastname }}</h2>
+              </div>
+              <div class="card-cate">
+                  <p>{{ student.category }}</p>
+              </div>
+              <div class="card-rs">
+                  <div class="card-rank">
+                      <p>Rank:</p>
+                      <div *ngIf=" student.age < 16"
+                           class="rank-kids-circles">
+                        <div class="k-circle white-c"></div>
+
+                        <div class="k-circle grey-c"></div>
+                        <div class="k-circle grey-c"></div>
+                        <div class="k-circle grey-c"></div>
+
+                        <div class="k-circle yellow-c"></div>
+                        <div class="k-circle yellow-c"></div>
+                        <div class="k-circle yellow-c"></div>
+
+                        <div class="k-circle orange-c"></div>
+                        <div class="k-circle orange-c"></div>
+                        <div class="k-circle orange-c"></div>
+
+                        <div class="k-circle green-c"></div>
+                        <div class="k-circle green-c"></div>
+                        <div class="k-circle green-c"></div>
+                      </div>
+
+                      <div *ngIf=" student.age >= 16 && student.rank != 'black-belt'"
+                           class="rank-kids-circles">
+                           <div class="k-circle white-c"></div>
+                           <div class="k-circle blue-c"></div>
+                           <div class="k-circle purple-c"></div>
+                           <div class="k-circle brown-c"></div>
+                      </div>  
+
+                      <div *ngIf=" student.age >= 18 && student.rank == 'black-belt'"
+                           class="rank-kids-circles">
+                           <div class="k-circle white-c"></div>
+                           <div class="k-circle coral-c"></div>
+                           <div class="k-circle coral2-c"></div>
+                           <div class="k-circle red-c"></div>
+                      </div>  
+
+                  </div>
+                  <div class="card-stripes">
+                    <p>Stripes:</p>
+                    <div class="stripes-kids-circles">
+                        <div class="s-k-c-line" *ngIf="student.rank != 'black-belt'">
+                              <div class="sk c-white"></div>
+                              <div class="sk c-white"></div>
+                              <div class="sk c-white"></div>
+                              <div class="sk c-white"></div>
+                        </div>
+                        <div *ngIf=" student.age < 16"
+                             class="s-k-c-line">
+                              <div class="sk c-red"></div>
+                              <div class="sk c-red"></div>
+                              <div class="sk c-red"></div>
+                              <div class="sk c-red"></div>
+                        </div>
+                        <div *ngIf=" student.age < 16"
+                             class="s-k-c-line">
+                              <div class="sk c-blue"></div>
+                              <div class="sk c-blue"></div>
+                              <div class="sk c-blue"></div>
+                              <div class="sk c-blue"></div>
+                        </div>
+
+                        <div *ngIf=" student.age >= 18 && student.rank == 'black-belt'" 
+                             class="s-k-c-line">
+                              <div class="sk c-white"></div>
+                              <div class="sk c-white"></div>
+                              <div class="sk c-white"></div>
+                              <div class="sk c-white"></div>
+                              <div class="sk c-white"></div>
+                              <div class="sk c-white"></div>
+                              <div class="sk c-white"></div>
+                              <div class="sk c-white"></div>
+                              <div class="sk c-white"></div>
+                       </div>
+
+                    </div>
+                  </div>
+              </div>
+          </div>
+          <div class="card-logo"></div>
+      </div>
+
+      <div class="card-body">
+
+            <table class="calendar">
+                 <tr>
+                     <td class="month c-line-1"></td>
+
+                     <td  class="day c-line-1">1</td>
+                     <td  class="day c-line-1">2</td>
+                     <td  class="day c-line-1">3</td>
+                     <td  class="day c-line-1">4</td>
+                     <td  class="day c-line-1">5</td>
+                     <td  class="day c-line-1">6</td>
+                     <td  class="day c-line-1">7</td>
+                     <td  class="day c-line-1">8</td>
+                     <td  class="day c-line-1">9</td>
+                     <td  class="day c-line-1">10</td>
+                     <td  class="day c-line-1">11</td>
+
+                     <td  class="day c-line-1">12</td>
+                     <td  class="day c-line-1">13</td>
+                     <td  class="day c-line-1">14</td>
+                     <td  class="day c-line-1">15</td>
+                     <td  class="day c-line-1">16</td>
+                     <td  class="day c-line-1">17</td>
+                     <td  class="day c-line-1">18</td>
+                     <td  class="day c-line-1">19</td>
+                     <td  class="day c-line-1">20</td>
+                     <td  class="day c-line-1">21</td>
+
+                     <td  class="day c-line-1">22</td>
+                     <td  class="day c-line-1">23</td>
+                     <td  class="day c-line-1">24</td>
+                     <td  class="day c-line-1">25</td>
+                     <td  class="day c-line-1">26</td>
+                     <td  class="day c-line-1">27</td>
+                     <td  class="day c-line-1">28</td>
+                     <td  class="day c-line-1">29</td>
+                     <td  class="day c-line-1">30</td>
+                     <td  class="day c-line-1">31</td>
+
+                 </tr>
+                 <tr>
+                    <td class="month c-line-1">JAN</td>
+
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+
+                 </tr>  
+                 <tr>
+
+                    <td class="month c-line-1">FEB</td>
+
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+
+                 </tr>  
+                 <tr>
+
+                    <td class="month c-line-1">MAR</td>
+
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+
+                 </tr>  
+                 <tr>
+
+                    <td class="month c-line-1">ABR</td>
+
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+
+                 </tr>  
+                 <tr>
+
+                    <td class="month c-line-1">MAY</td>
+
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+
+                 </tr>  
+                 <tr>
+
+                    <td class="month c-line-1">JUN</td>
+
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+
+                 </tr>
+                 <tr>
+
+                    <td class="month c-line-1">JUL</td>
+
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+
+                 </tr>  
+                 <tr>
+
+                    <td class="month c-line-1">AUG</td>
+
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+
+                 </tr>  
+                 <tr>
+
+                    <td class="month c-line-1">SEP</td>
+
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                 </tr>  
+                 <tr>
+
+                    <td class="month c-line-1">OCT</td>
+
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+
+                 </tr>  
+                 <tr>
+
+                    <td class="month c-line-1">NOV</td>
+
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+                    <td  class="day c-line-2"></td>
+
+                 </tr>     
+                 <tr>
+
+                    <td class="month c-line-1">DEC</td>
+
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+                    <td  class="day c-line-1"></td>
+
+                 </tr>       
+            </table>
+
+      </div>
+
+      <div class="card-footer">
+          <div class="point-box">
+            <div class="p-b"></div>
+            <p>ATTENDANCE ( YOU NEED 8  IN A MONTH AT LEAST TO GET A STRIPE )</p>
+          </div>
+          <div class="point-box">
+            <div class="p-r"></div>
+            <p class="text-p-red">STRIPE DAY</p> 
+        </div>
+      </div>
+
+    </div>    
+
+</section>

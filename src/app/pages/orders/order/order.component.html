@@ -1,0 +1,168 @@
+<div class="header-box-container" *ngIf="order">
+
+    <div class="box-order" style="margin-top: 40px;">
+
+        <div class="box-title">
+            <h2>ORDER DETAILS</h2>
+        </div>
+
+        <div class="order-data">
+
+          <ul>
+                <li>Made by:
+                    {{ order.made }}
+                </li>
+                <li>Date:
+                   {{ order.dateMade }}
+                </li>
+                <li>Estudent:
+                    {{ order.person.name }}
+                    {{ order.person.lastname }}</li>
+                <li>Item:
+                    {{ order.item.product }}
+                    {{ order.item.brand }}
+                    {{ order.item.model }}
+                    {{ order.item.color }}
+                    {{ order.item.size }}
+                </li>
+                <li *ngIf=" order.status == 'ordered'"  >Status:
+                    <span style="color:#ee3b2e; font-size: 18px;"> Awaiting new shipment </span>
+                </li>
+                <li *ngIf=" order.status == 'ready'">Status:
+                   <span style="color: #ffdd6c; font-size: 18px;"> Ready to delivery </span>
+                </li>
+                <li *ngIf=" order.status == 'delivered'">Status:
+                   <span style="color:#1DB954; font-size: 18px;"> Delivered! (finished) </span>
+                </li>
+
+          </ul>
+
+          <div class="circle-data"  *ngIf="item">
+            <h2>Quantity</h2>
+            <p>{{ order.orderQty }} Uni.</p>
+            <p *ngIf="item.qty.qty >= 0 && order.status === 'ordered'" style="color: #ee3b2e;">In stock: {{ item.qty.qty }}</p>
+            <p *ngIf="item.qty.qty >= 0 && order.status === 'ready'" style="color:#ffdd6c;">In stock: {{ item.qty.qty }}</p>
+            <p *ngIf="order.status === 'delivered'" style="color: #1DB954;"> Delivered </p>
+          </div>
+
+          <div class="circle-data">
+            <h2>Total</h2>
+            <p> ${{ order.totalOrder | number : '1.1-2' }}</p>
+            <p style="color:#ffdd6c;">uni: ${{ order.item.price }} </p>
+          </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="body-box-container" *ngIf="order">
+
+  <div class="order-tracking">
+        <h3>Order Tracking</h3>
+
+         <div class="order-details">
+
+              <div class="o-d-noimg">
+                <p>MADE</p>
+                <P>BY</P>
+                <p>{{ order.made }}</p>
+              </div>
+
+              <div *ngIf="order.status == 'ordered'">
+                <h3 class="status-active">Ordered</h3>
+              </div>
+
+              <div *ngIf="order.status == 'ready'">
+                <h3 class="status-active">Ready</h3>
+              </div>
+
+              <div *ngIf="order.status == 'delivered'">
+                <h3 class="status-active">Done</h3>
+              </div>
+
+              <div  *ngIf="order.status == 'ordered'" class="o-d-img">
+                 <a [routerLink]="['/item/' + order.item.id + '/allItems']">
+                  <img [src]="order.item.photoUrl" alt="">
+                 </a>
+              </div>
+
+              <div  *ngIf="order.status == 'ready' || order.status == 'delivered'" class="img-active">
+                  <a [routerLink]="['/item/' + order.item.id + '/allItems']">
+                    <img [src]="order.item.photoUrl" alt="">
+                  </a>
+              </div>
+
+              <div *ngIf="order.status != 'delivered'">
+                <h3 class="status-desactive">Waiting</h3>
+              </div>
+
+              <div *ngIf="order.status == 'delivered'">
+                <h3 class="status-active">Delivered</h3>
+              </div>
+
+              <div  *ngIf="order.status == 'ordered' || order.status == 'ready'" class="o-d-img">
+                <a [routerLink]="['/profileStudent/' + order.person.id ]">
+                  <img [src]="order.person.photoUrl" alt="">
+                </a>
+              </div>
+
+              <div *ngIf="order.status == 'delivered'" class="img-active">
+                <a [routerLink]="['/profileStudent/' + order.person.id ]">
+                  <img [src]="order.person.photoUrl" alt="">
+                </a>
+              </div>
+
+
+         </div>
+
+  </div>
+
+  <div class="bottom-box">
+
+        <div class="status-cajita" *ngIf="order.status == 'ready'">
+
+          <button class="delivery-button animate__animated animate__pulse"
+                  (click)="delivery( order.id )">
+                  Delivery!
+          </button>
+
+        </div>
+
+        <div class="status-cajita" *ngIf="order.status == 'delivered'">
+
+          <div class="qty-box" >
+                <div class="last-change-qty">
+                  <p>Delivered by: {{ order.lastUpdateBy }}</p>
+                  <p>Date: {{ order.dateLastUpdate }}</p>
+                </div>
+          </div>
+
+        </div>
+
+        <div class="button-menu-box">
+
+          <a *ngIf="order.status != 'delivered' "
+             class="icon-button"
+             [routerLink]="['/updateorder', order.id ]">
+              <img src="../../../../../assets/img/icons/update-order.png" alt="">
+          </a>
+
+          <a class="icon-button" (click)="disable( )">
+              <img src="../../../../../assets/img/icons/delete.png" alt="">
+          </a>
+
+        </div>
+
+  </div>
+
+</div>
+
+<a *ngIf="order" [routerLink]="[listOrigin]"
+   class="icon-button float-button">
+   <img src="../../../../assets/img/icons/back.png" alt="">
+</a>
+
+
+

@@ -1,0 +1,96 @@
+
+
+<div class="header-box-container animate__animated animate__fadeIn">
+
+  <div class="box-order" style="margin-top: 40px;">
+
+      <div class="box-title">
+          <h2>User</h2>
+      </div>
+
+      <div class="order-data">
+
+          <ul *ngIf="user">
+              <li>User: {{ user.user }}</li>
+              <li>{{ user.email }}</li>
+              <li *ngIf="user.active == true">Status: Active</li>
+              <li *ngIf="user.active == false">Status: Desactive</li>
+              <li *ngIf="user.role === 'A'">Role: Admin</li>
+              <li *ngIf="user.role === 'U'">Role: Guest</li>
+          </ul>
+      </div>
+
+  </div>
+
+  <div class="newUser-box">
+
+    <p *ngIf="error">{{ error }}</p>
+
+    <form class="main-form"
+          [formGroup]="userForm"
+          (ngSubmit)="updateUser( userForm )">
+
+          <div class="form-control">
+            <input formControlName="id"
+                   name="id"
+                   type="hidden">
+          </div>
+
+          <div class="form-control">
+            <input formControlName="user"
+                   name="user"
+                   placeholder="User"
+                   type="text">
+          </div>
+
+          <div class="form-control">
+            <input formControlName="email"
+                   name="email"
+                   placeholder="Email"
+                   type="text">
+          </div>
+
+          <div class="form-control-select">
+
+            <label for="role">Role:</label>
+            <select name="role"
+                    id="role"
+                    formControlName="role"
+                    >
+                    <option *ngIf="user && user.role === 'A'" value="A" selected>Admin</option>
+                    <option *ngIf="user && user.role === 'U'" value="U" selected>Guest</option>
+                    <option *ngIf="user && user.role !== 'A'" value="A">Admin</option>
+                    <option *ngIf="user && user.role !== 'U'" value="U">Guest</option>
+            </select>
+
+          </div>
+
+          <div class="form-control-select">
+
+            <label for="active">Active:</label>
+            <select name="active"
+                    id="active"
+                    formControlName="active"
+                    >
+                    <option *ngIf="user && user.active == true" [ngValue]="true" selected>Actived</option>
+                    <option *ngIf="user && user.active == false" [ngValue]="false" selected>Desactivated</option>
+                    <option *ngIf="user && user.active != true" [ngValue]="true">Actived</option>
+                    <option *ngIf="user && user.active != false" [ngValue]="false">Desactivated</option>
+            </select>
+
+          </div>
+
+          <input type="submit"
+                 value="Update"
+                 class="red-button"
+                 style="margin-top: 20px;">
+
+    </form>
+
+  </div>
+
+</div>
+
+<a routerLink="../../listUsers" class="icon-button float-button">
+  <img src="../../../../../assets/img/icons/back.png" alt="">
+</a>

@@ -1,0 +1,135 @@
+<div class="header-box-container" style="margin-top: 25px;">
+    <div class="box-title">
+        <h2>STUDENT</h2>
+    </div>
+</div>
+
+<div class="body-box-container">
+
+    <form   [formGroup]="studentForm"
+            (ngSubmit)="update( studentForm )"
+            ngNativeValidate
+            class="main-form">
+
+        <div class="form-double-content">
+
+            <div class="form-left-box">
+
+                <div class="form-control">
+                    <input type="hidden"
+                           name="id"
+                           formControlName="id">
+                </div>
+
+                <div class="form-control">
+                    <input type="text"
+                           placeholder="Name"
+                           name="name"
+                           formControlName="name"
+                           required>
+                </div>
+
+                <div class="form-control">
+                    <input type="text"
+                           placeholder="Lastname"
+                           name="lastname"
+                           formControlName="lastname"
+                           required>
+                </div>
+
+                <div class="form-control-number">
+                        <label for="age">Age:</label>
+                        <input type="number"
+                               min="0"
+                               name="age"
+                               formControlName="age"
+                               #age >
+                </div>
+
+                <div class="form-control-select">
+
+                        <label for="rank">Rank:</label>
+                        <select name="rank"
+                                id="rank"
+                                formControlName="rank">
+
+                                <option *ngIf="student" selected>{{ student.rank }}</option>
+                                <option *ngFor="let belt of rank" [ngValue]="belt.belt">
+                                    {{ belt.belt }}
+                                </option>
+                        </select>
+
+                </div>
+
+                <div class="form-control-select">
+
+                        <label for="category">Category:</label>
+                        <select name="category"
+                                id="category"
+                                formControlName="category">
+
+                                <option *ngIf="student" selected>{{ student.category }}</option>
+                                <option *ngFor="let categoria of categories" [ngValue]="categoria.name">
+                                    {{ categoria.name }} {{ categoria.age }}
+                                </option>
+                        </select>
+
+                </div>
+
+                <div class="form-control-select">
+
+                        <label for="class">Class:</label>
+                        <select name="class"
+                                id="class"
+                                formControlName="class">
+
+                                <option *ngIf="student" selected>{{ student.class }}</option>
+                                <option *ngFor="let class of classes" [ngValue]="class.name">
+                                    {{ class.name }}
+                                </option>
+                        </select>
+
+                </div>
+
+                <div class="form-control">
+                    <input type="email"
+                        placeholder="Email"
+                        formControlName="email"
+                        name="email">
+                </div>
+
+            </div>
+
+            <div class="form-right-box">
+
+                <div class="form-control upload-box">
+
+                    <img *ngIf="imgTemp" [src]="imgTemp" alt="">
+                    <img *ngIf="!imgTemp && student " [src]="student.photo.url" alt="">
+
+                    <label for="input-file" class="input-file">Select photo</label>
+                    <input type="file"
+                           name="student-photo"
+                           id="input-file"
+                           (change)="handlerImage( $event.target.files[0] )"
+                           >
+                </div>
+
+            </div>
+
+        </div>
+
+        <input type="submit"
+               value="Save"
+               class="red-button">
+
+
+    </form>
+
+</div>
+
+<a *ngIf="student" [routerLink]="[origin, student.id]" class="icon-button float-button">
+  <img src="../../../../../assets/img/icons/back.png" alt="">
+</a>
+
+

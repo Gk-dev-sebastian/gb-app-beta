@@ -1,0 +1,46 @@
+<div class="header-box-container">
+
+    <div class="search-container">
+
+        <div class="top-search-container">
+
+            <input type="text"
+                   placeholder="Search..."
+                   #input
+                   (keyup)="search( input.value )">
+
+            <a [routerLink]="['/newStudent', '../../listStudent']" class="new-element-button">
+                <img src="../../../../../assets/img/icons/students.png" alt="">
+                <p>New</p>
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="body-box-container animate__animated animate__fadeIn">
+    <cdk-virtual-scroll-viewport itemSize="10" class="table-scroll-items">
+    <table *ngIf="students">
+        <thead>
+            <tr>
+                <th style="text-transform: capitalize;">Name</th>
+                <th style="text-transform: capitalize;">Lastname</th>
+                <th>Cat</th>
+                <th>Class</th>
+            </tr>
+        </thead>
+        <tbody>
+        <ng-container *cdkVirtualFor="let stu of students">
+            <tr [routerLink]="['/profileStudent/', stu.id]">
+                    <td>{{ stu.name }}</td>
+                    <td>{{ stu.lastname }}</td>
+                    <td>{{ stu.category }}</td>
+                    <td>{{ stu.class }}</td>
+            </tr>
+        </ng-container>
+        </tbody>
+    </table>
+    </cdk-virtual-scroll-viewport>
+</div>

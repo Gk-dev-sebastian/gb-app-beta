@@ -1,0 +1,67 @@
+<div class="header-box-container">
+
+    <div class="box-student" style="margin-top: 40px;">
+
+        <div class="box-title">
+            <h2>Student</h2>
+        </div>
+
+        <div class="student-data">
+
+            <img *ngIf="student"
+                 [src]=" student.photo.url"
+                 alt=""
+                 class="animate__animated animate__fadeIn">
+
+            <ul *ngIf="student"
+                class="animate__animated animate__fadeIn">
+                <li>Name: {{ student.name }}</li>
+                <li>Lastname: {{ student.lastname }}</li>
+                <li>Cat: {{ student.category }}</li>
+                <li>Class: {{ student.class }}</li>
+                <li>Age: {{ student.age }}</li>
+                <li>Rank: {{ student.rank }}</li>
+                <li>Email: {{ student.email }}</li>
+            </ul>
+        </div>
+
+    </div>
+
+</div>
+
+<div class="body-box-container">
+
+  <div class="bottom-box">
+
+    <div class="button-menu-box">
+
+      <a *ngIf="student"
+          [routerLink]="['/cardStudent/', student.id]"
+          target="blank"
+          class="icon-button">
+          <img src="../../../../assets/img/icons/card.png" alt="">
+      </a>
+
+      <a  *ngIf="student"
+          [routerLink]="['/updateStudent/', student.id, '../../../profileStudent']"
+          class="icon-button">
+          <img src="../../../../assets/img/icons/edit.png" alt="">
+      </a>
+
+      <a *ngIf="student"
+          (click)="disable( student.id )"
+          class="icon-button">
+          <img src="../../../../assets/img/icons/delete.png" alt="">
+      </a>
+
+    </div>
+
+  </div>
+
+</div>
+
+<a routerLink="/listStudent"
+   class="icon-button float-button">
+   <img src="../../../../assets/img/icons/back.png" alt="">
+</a>
+

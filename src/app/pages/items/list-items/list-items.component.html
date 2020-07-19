@@ -1,0 +1,20 @@
+<div class="header-box-container">
+
+  <app-search (searchItems)="searchItems( $event )"></app-search>
+  <app-list-menu></app-list-menu>
+
+</div>
+
+<div *ngIf="items.length <= 0" class="body-box-container animate__animated animate__fadeIn">
+
+  <router-outlet></router-outlet>
+
+</div>
+
+<div *ngIf="items.length > 0" class="body-box-container">
+
+  <app-table-list [childData]="items" origin="allItems"></app-table-list>
+
+</div>
+
+

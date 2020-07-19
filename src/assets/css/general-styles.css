@@ -1,0 +1,479 @@
+
+/*==========================
+  general
+============================*/
+
+body{
+  margin: 0px;
+  padding: 0px;
+}
+
+.main-container {
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #333333;
+  background-image: url('../img/main-background.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+@font-face{
+  font-family: gb-font;
+  font-style: normal;
+  font-weight: 600;
+  src: url(../src/assets/fonts/gb-font.woff);
+}
+
+/*==========================
+  containers
+============================*/
+
+.box-container{
+  width: 90%;
+  height: 85vh;
+  min-height: 85vh;
+  background-color: #262626;
+  margin-top: 25px;
+  border-radius: 30px;
+  box-sizing: border-box;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/*===========================
+  header container
+=============================*/
+
+.header-box-container{
+  width: 100%;
+  min-width: 1200px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding-bottom: 0px;
+}
+
+/*===========================
+  search container
+=============================*/
+
+.search-container{
+  width: 100%;
+  min-width: 1200px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-bottom: solid 2px #383838;
+}
+
+.top-search-container{
+  width: 100%;
+  height: 100px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-container input {
+  width: 400px;
+  margin-right: 20px;
+  background-color: #1A1A1A;
+  border: solid 2px #808080;
+  padding: 10px;
+  border-radius: 20px;
+  text-align: center;
+  outline: none;
+  color: #f1f1f1;
+
+}
+
+.new-element-button{
+  background-color: #1A1A1A;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  height: 50px;
+  overflow: hidden;
+  box-sizing: border-box;
+  padding: 10px;
+  border-radius: 40px;
+  border: solid 2px #F70035;
+  text-decoration: none;
+  outline: none;
+}
+
+.new-element-button img{
+  width: 40px;
+  height: 40px;
+  margin-right: 15px;
+}
+
+.new-element-button p{
+  color: #f1f1f1;
+  font-family: helvetica;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+
+}
+
+/*========================
+  box title!!!!!!!!!!
+==========================*/
+
+.box-title{
+  border-bottom:solid 2px #383838;
+  width: 100%;
+  margin: 2px 0px;
+  padding: 0px 0px 5px 0px;
+  text-align: center;
+}
+
+.box-title h2{
+  margin: 0px;
+  padding: 10px;
+  font-size: 16px;
+  color: #f1f1f1;
+  font-family: helvetica;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/*===========================
+  body container
+=============================*/
+
+.body-box-container{
+
+  width: 100%;
+  min-width: 1200px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+
+}
+
+/*==========================
+  body-submenu
+============================*/
+
+.body-submenu{
+  width: 100%;
+  overflow: hidden;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.body-submenu ul {
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+}
+
+.body-submenu ul,
+.body-submenu li {
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
+}
+
+.body-submenu ul li a {
+  display: block;
+  width: 100px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  background-color: #0a0a0a;
+  margin: 0px 2px;
+  text-decoration: none;
+  outline: none;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #8d8d8d;
+  border-radius: 3px;
+}
+
+.body-submenu-active-list {
+  display: block;
+  width: 100px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  background-color: #0a0a0a;
+  margin: 0px 2px;
+  text-decoration: none;
+  outline: none;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #F70035 !important;
+  border: solid 2px #F70035;
+  border-radius: 3px;
+}
+
+/*======================
+  bottom menu
+========================*/
+
+.bottom-box{
+  width: 100%;
+  max-width: 1200px;
+  height: 120px;
+  overflow: hidden;
+  border: solid 2px #444444;
+  border-radius: 20px;
+  position: relative;
+  margin-top: 10px;
+  box-sizing: border-box;
+  padding: 20px 60px 20px 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button-menu-box{
+  order: 2;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+/*=========================
+  circle data
+===========================*/
+
+.circle-data {
+  width: 140px;
+  height: 140px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin: 0px 20px;
+  border: solid 2px #808080;
+  border-radius: 75px;
+  box-sizing: border-box;
+  padding: 20px;
+}
+
+.circle-data h2,
+.circle-data h1,
+.circle-data p
+ {
+  margin: 0px;
+  padding: 0px;
+  text-align: center;
+}
+
+.circle-data h2{
+  font-size: 22px;
+}
+
+.circle-data p {
+  font-size: 12px;
+}
+
+/*==========================
+  general buttons
+============================*/
+
+.red-button{
+  display: block;
+  width: 120px;
+  height: 40px;
+  background-color: #F70035;
+  font-weight: 600;
+  margin: 20px;
+  border: none;
+  border-radius: 25px;
+  line-height: 40px;
+  text-align: center;
+  color: #f1f1f1;
+  font-family: arial, helvetica;
+  text-decoration: none;
+  outline: none;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 1s ease;
+}
+
+.red-button:hover{
+  opacity: 0.8;
+}
+
+.icon-button{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 70px;
+  height: 70px;
+  margin: 5px;
+}
+
+.icon-button img{
+  width: 60px;
+  height: 60px;
+}
+
+.float-button{
+  position: absolute;
+  top:150px;
+  right: 150px;
+}
+
+/*==================================
+  scrolling
+====================================*/
+
+/* DARK SCROLL GK*/
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+  margin-left: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: rgb(49, 49, 49);
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(83, 83, 83);
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(97, 97, 97);
+  border-radius: 10px;
+}
+
+/* ANGULAR SCROLL*/
+
+.table-scroll-items{
+  width: 930px;
+  height: 53vh;
+}
+
+.scroll-text-box{
+  width: 100%;
+  height: 22vh;
+}
+
+.scroll-sub-text-box{
+  width: 100%;
+  height: 15vh;
+}
+
+/* ==================================
+           SWal alert
+=====================================*/
+
+.swal-update-container-class{
+  width: 100%;
+}
+
+.swal-update-popup-class{
+  width: 250px !important;
+  background-color: #2e2e2e !important;
+  color: #f1f1f1 !important;
+  border-radius: 15px !important;
+  box-shadow: none !important;
+  border:solid 2px #808080 !important;
+  margin-top: 0px !important;
+  margin-right: 50px !important;
+}
+
+.swal-update-title-class{
+  color: #f1f1f1 !important;
+  font-family: 'Roboto', sans-serif !important;
+  font-size: 18px !important;
+}
+
+/* delete */
+
+.container-class{
+  width: 100%;
+}
+.popup-class{
+  background-color: #0a0a0a !important;
+  color: #f1f1f1 !important;
+  border-radius: 15px !important;
+  border: 2px solid rgb(43, 43, 43) !important;
+  padding: 50px !important;
+}
+.content-class{
+  color: #f1f1f1 !important;
+  font-family: 'Roboto', sans-serif !important;
+}
+.title-class{
+  color: #f1f1f1 !important;
+  font-family: 'Roboto', sans-serif !important;
+}
+.confirm-button-class,
+.close-button-class {
+
+  background-color: #0074FF !important;
+
+  border-radius: 30px !important;
+  border: none !important;
+  outline: none !important;
+
+  color: #f1f1f1 !important;
+  font-family: 'roboto', helvetica !important;
+  font-size: 16px !important;
+  letter-spacing: 1px !important;
+
+}
+.cancel-button-class{
+  background-color: rgb(255, 0, 76) !important;
+
+  border-radius: 30px !important;
+  border: none !important;
+  outline: none !important;
+
+  color: #f1f1f1 !important;
+  font-family: 'roboto', helvetica !important;
+  font-size: 16px !important;
+  letter-spacing: 1px !important;
+}
+
+
+/*==========================
+      footer
+===========================*/
+
+.footer-box {
+  width: 100%;
+  position: absolute;
+  bottom: 0px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-allrights{
+  color: #808080;
+  color: #f1f1f1 !important;
+  font-family: 'roboto', helvetica !important;
+  font-size: 12px !important;
+  letter-spacing: 1px !important;
+}

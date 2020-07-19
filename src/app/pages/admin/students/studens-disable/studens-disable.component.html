@@ -1,0 +1,39 @@
+<div class="body-box-container animate__animated animate__fadeIn">
+  <cdk-virtual-scroll-viewport itemSize="10" class="table-scroll-items">
+  <table *ngIf="students">
+      <thead>
+          <tr>
+              <th style="text-transform: capitalize;">Student</th>
+              <th style="text-transform: capitalize;">Status</th>
+              <th></th>
+              <th></th>
+          </tr>
+      </thead>
+      <tbody>
+      <ng-container *cdkVirtualFor="let student of students">
+          <tr style="cursor: default !important;">
+                  <td>
+                      {{ student.name }}-
+                      {{ student.lastname }}-
+                  </td>
+                  <td>
+                      {{ student.active }}
+                  </td>
+                  <td>
+                    <button class=""
+                            (click)="reactive( student.id )">
+                       Reactive
+                    </button>
+                  </td>
+                  <td>
+                    <button class=""
+                            (click)="delete( student.id )">
+                       Delete
+                    </button>
+                  </td>
+          </tr>
+      </ng-container>
+      </tbody>
+  </table>
+  </cdk-virtual-scroll-viewport>
+</div>

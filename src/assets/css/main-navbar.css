@@ -1,0 +1,84 @@
+/*==========================
+    navbar
+============================*/
+
+
+.navbar {
+  width: 100%;
+  min-width: 1200px;
+  height: 80px;
+  overflow: hidden;
+  border-radius: 50px;
+  padding: 0px 50px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: black;
+}
+
+.nav-container{
+  width: 100%;
+  height: 80px;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.box-buttons-left {
+  height: 80px;
+  width: 100%;
+  margin-right: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.box-buttons-left a {
+  display: block;
+  width: 120px;
+  height: 40px;
+  background-color: #F70035;
+  font-weight: 600;
+  margin-right:20px ;
+  border-radius: 25px;
+  line-height: 40px;
+  text-align: center;
+  color: #f1f1f1;
+  font-family: arial, helvetica;
+  text-decoration: none;
+}
+
+.left-active-button {
+  background-color: rgba(51, 51, 51, 0) !important;
+  border:solid 2px  #F70035 !important;
+  color:  #F70035 !important;
+}
+
+.box-buttons-right {
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.box-buttons-right a {
+  margin:0px 15px ;
+  overflow: hidden;
+}
+
+.box-buttons-right h2 {
+  color: #f1f1f1;
+  font-family: helvetica;
+  font-size: 18px;
+}
+
+.box-buttons-right a img{
+  width: 45px;
+  height: auto;
+}
+
+.right-active-button {
+  cursor: pointer;
+}

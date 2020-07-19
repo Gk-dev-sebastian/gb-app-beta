@@ -1,0 +1,95 @@
+
+/*=================================
+    login form
+===================================*/
+
+.login-container {
+  width: 100%;
+  height: 100vh;
+  margin: 0px;
+  padding: 0px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.login-box{
+  width: 90%;
+  max-width: 500px;
+  padding:50px 0px;
+  background-color: #383838;
+  border: solid 2px #F70035;
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login-box h1{
+  padding: 0px;
+  margin-top: 0px;
+  margin-bottom: 30px;
+  color: #f1f1f1;
+  font-family: 'gb-font', helvetica;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.login-box p{
+  color: #F70035;
+  text-decoration: underline;
+  font-family: helvetica;
+}
+
+.login-box form {
+  width: 80%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+.login-box form .form-control{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+}
+
+.login-box form .form-control input{
+  width: 90%;
+  margin: 10px 0px;
+  background-color: #1A1A1A;
+  border: solid 2px #808080;
+  padding: 10px 30px;
+  border-radius: 20px;
+  outline: none;
+  color: #f1f1f1;
+}
+
+.login-submit{
+  display: block;
+  width: 120px;
+  height: 40px;
+  background-color: #F70035;
+  font-weight: 600;
+  margin: 20px;
+  border: none;
+  border-radius: 25px;
+  line-height: 40px;
+  text-align: center;
+  color: #f1f1f1;
+  font-family: arial, helvetica;
+  text-decoration: none;
+  outline: none;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 1s ease;
+}
+
+.login-submit:hover{
+  opacity: 0.8;
+}

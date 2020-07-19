@@ -1,0 +1,93 @@
+<div class="header-box-container">
+
+    <div class="box-item" style="margin-top: 40px;">
+
+        <div class="box-title">
+            <h2>ITEM</h2>
+        </div>
+
+        <div class="item-data animate__animated animate__fadeIn">
+
+            <img *ngIf="item" [src]=" item.photo.url" alt="">
+
+            <ul *ngIf="item">
+                <li>Product: {{ item.product }}</li>
+                <li>Brand: {{ item.brand }}</li>
+                <li>Model: {{ item.model }}</li>
+                <li>Color: {{ item.color }}</li>
+                <li>Size: {{ item.size }} </li>
+            </ul>
+
+            <div class="circle-data"  *ngIf="item">
+              <h1>Quantity</h1>
+              <h2>{{ item.qty.qty }}
+                <p *ngIf="item.qty.qty">in stock</p>
+                <p style="color: darkgoldenrod;">{{item.qty.qtyNewShipment}} ordered</p>
+              </h2>
+            </div>
+
+            <div class="circle-data"  *ngIf="item">
+              <h1>Price</h1>
+              <h2>{{ item.price.total | number : '1.1-2' }}
+                <p style="color: darkgoldenrod;">Discount: {{ discount | number: '1.0-1' }}%</p>
+              </h2>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="body-box-container">
+
+   <div class="bottom-box">
+
+    <div class="qty-box" *ngIf="item">
+
+      <div class="last-change-qty">
+        <p>Last change by: {{ item.qty.lastChange }}</p>
+        <p>Last change date: {{ item.qty.lastChangeData }}</p>
+      </div>
+
+      <div class="qty-number-box">
+        <button class="qty-buttons-r"
+        (click)="qtyDecrement()">-</button>
+        <div class="qty-number">qty: {{ item.qty.qty }}</div>
+        <button class="qty-buttons-l"
+                (click)="qtyIncrement()">
+                +
+        </button>
+      </div>
+
+    </div>
+
+   </div>
+
+   <div class="bottom-box">
+
+        <div class="button-menu-box">
+
+          <a *ngIf="item"
+             [routerLink]="['/updateitem/', item.id, 'item']"
+             class="icon-button">
+              <img src="../../../../../assets/img/icons/update-item.png" alt="">
+          </a>
+
+          <a (click)="disable()" class="icon-button">
+              <img src="../../../../../assets/img/icons/delete.png" alt="">
+          </a>
+
+        </div>
+
+   </div>
+
+</div>
+
+<a [routerLink]="['/listitem', origin]"
+   class="icon-button float-button">
+   <img src="../../../../../assets/img/icons/back.png" alt="">
+</a>
+
+
+

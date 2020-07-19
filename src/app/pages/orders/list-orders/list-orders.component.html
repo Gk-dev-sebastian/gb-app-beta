@@ -1,0 +1,18 @@
+<div class="header-box-container">
+
+  <app-search (searchOrders)="searchOrders( $event )"></app-search>
+  <app-list-menu></app-list-menu>
+
+</div>
+
+<div class="body-box-container animate__animated animate__fadeIn"
+     *ngIf="orders.length <= 0">
+  <router-outlet></router-outlet>
+</div>
+
+<div class="body-box-container"
+     *ngIf="orders.length > 0">
+  <app-table [orders]="orders"></app-table>
+</div>
+
+

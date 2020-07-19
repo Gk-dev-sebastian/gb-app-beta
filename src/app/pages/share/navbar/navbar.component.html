@@ -1,0 +1,27 @@
+<section class="navbar">
+
+  <div class="nav-container">
+
+      <div class="box-buttons-left">
+        <a *ngFor="let list of listMenu"
+          class="st-button"
+          [routerLink]="[list.link]"
+          routerLinkActive="left-active-button"
+          >{{ list.name }}
+        </a>
+      </div>
+
+      <div class="box-buttons-right">
+
+          <a class="">
+              <img src="../../../../assets/img/icons/icons.png" alt="">
+          </a>
+          <h2 *ngIf="user">{{ user.user }}</h2>
+          <a class="right-active-button" (click)="logOut()" >
+              <img src="../../../../assets/img/icons/logout.png" alt="">
+          </a>
+      </div>
+
+  </div>
+
+</section>

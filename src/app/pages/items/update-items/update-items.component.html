@@ -1,0 +1,122 @@
+<div class="header-box-container" style="margin-top: 25px;">
+    <div class="box-title">
+        <h2>UPDATE ITEM</h2>
+    </div>
+</div>
+
+<div class="body-box-container">
+
+    <form class="main-form"
+          [formGroup]="itemForm"
+          (ngSubmit)="updateItem(itemForm.value )"
+          ngNativeValidate>
+
+        <div class="form-double-content">
+
+            <div class="form-left-box">
+
+                <div class="form-control">
+                    <input type="hidden"
+                           name="id"
+                           placeholder="id"
+                           >
+                </div>
+
+                <div class="form-control">
+                    <input type="text"
+                           placeholder="Product"
+                           name="product"
+                           formControlName="product">
+                </div>
+
+                <div class="form-control">
+                    <input type="text"
+                           placeholder="Brand"
+                           name="brand"
+                           formControlName="brand">
+                </div>
+
+                <div class="form-control">
+                    <input type="text"
+                           placeholder="Model"
+                           name="model"
+                           formControlName="model">
+                </div>
+
+                <div class="form-control">
+                    <input type="text"
+                           placeholder="Color"
+                           name="color"
+                           formControlName="color">
+                </div>
+
+                <div class="form-control textarea-box">
+                    <label for="desc">Description:</label>
+                    <textarea
+                        name="desc"
+                        formControlName="desc"
+                        id="desc"
+                        cols="30"
+                        rows="10"
+                    ></textarea>
+                </div>
+
+            </div>
+
+            <div class="form-right-box">
+
+              <div class="form-control-number">
+                  <label for="price">Price:</label>
+                  <input type="number"
+                         min="0"
+                         step="0.01"
+                         name="listPrice"
+                         formControlName="listPrice">
+              </div>
+
+              <div class="form-control-number">
+                  <label for="discount">Discount:</label>
+                  <input type="number"
+                         min="0"
+                         value="0"
+                         step="0.01"
+                         name="discount"
+                         formControlName="discount">
+              </div>
+
+              <div class="form-control">
+                    <input type="text"
+                           name="size"
+                           placeholder="Size"
+                           formControlName="size">
+              </div>
+
+              <div class="form-control upload-box">
+                    <img *ngIf="imgTemp" [src]="imgTemp" alt="">
+                    <img *ngIf="item && !imgTemp" [src]="item.photo.url" alt="">
+
+                    <label for="input-file" class="input-file">Select photo</label>
+
+                    <input type="file"
+                           name="item-photo"
+                           id="input-file"
+                           (change)="handlerImage( $event.target.files[0] )"
+                           >
+              </div>
+
+            </div>
+
+        </div>
+
+        <input type="submit"
+               value="Save"
+               class="red-button">
+
+
+    </form>
+
+</div>
+
+<a [routerLink]="['/item/', id, 'allItems']" class="icon-button float-button">
+  <img src="../../../../../assets/img/icons/back.png" alt="">
+</a>

@@ -1,0 +1,32 @@
+
+
+<div class="top-search-container">
+
+  <a routerLink="../newUser" class="new-element-button">
+      <img src="../../../../../assets/img/icons/icons.png" alt="">
+      <p>New</p>
+  </a>
+
+</div>
+
+<div class="body-box-container animate__animated animate__fadeIn">
+  <cdk-virtual-scroll-viewport itemSize="10" class="table-scroll-items">
+  <table *ngIf="users">
+      <thead>
+          <tr>
+              <th style="text-transform: capitalize;">User</th>
+              <th style="text-transform: capitalize;">Email</th>
+          </tr>
+      </thead>
+      <tbody>
+      <ng-container *cdkVirtualFor="let user of users">
+          <tr [routerLink]="['../updateUser', user.id]">
+                  <td>{{ user.user }}</td>
+                  <td>{{ user.email }}</td>
+          </tr>
+      </ng-container>
+      </tbody>
+  </table>
+  </cdk-virtual-scroll-viewport>
+</div>
+

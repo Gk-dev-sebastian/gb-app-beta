@@ -1,0 +1,46 @@
+<div class="body-box-container animate__animated animate__fadeIn">
+  <cdk-virtual-scroll-viewport itemSize="10" class="table-scroll-items">
+  <table *ngIf="orders">
+      <thead>
+          <tr>
+              <th style="text-transform: capitalize;">order</th>
+              <th style="text-transform: capitalize;">Made by</th>
+              <th style="text-transform: capitalize;">Made date</th>
+              <th style="text-transform: capitalize;">Disable by</th>
+              <th style="text-transform: capitalize;">Disable date</th>
+              <th style="text-transform: capitalize;">Status</th>
+              <th></th>
+          </tr>
+      </thead>
+      <tbody>
+      <ng-container *cdkVirtualFor="let order of orders">
+          <tr style="cursor: default !important;">
+                  <td>
+                      {{ order.item.product }}-
+                      {{ order.item.brand }}-
+                      {{ order.item.model }}-
+                      {{ order.item.color }}-
+                      {{ order.item.size }} //
+                      {{ order.person.name }}-
+                      {{ order.person.lastname }}
+                  </td>
+                  <td>{{ order.made }}</td>
+                  <td>{{ order.dateMade }}</td>
+                  <td>{{ order.lastUpdateBy }}</td>
+                  <td>{{ order.dateLastUpdate }}</td>
+                  <td>
+                    {{ order.status }}
+                  </td>
+                  <td>
+                    <button class=""
+                            (click)="delete( order.id )">
+                       Delete
+                    </button>
+                  </td>
+          </tr>
+      </ng-container>
+      </tbody>
+  </table>
+  </cdk-virtual-scroll-viewport>
+</div>
+

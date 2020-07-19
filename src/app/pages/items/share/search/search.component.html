@@ -1,0 +1,19 @@
+
+  <div class="search-container">
+
+      <div class="top-search-container">
+
+          <input type="text"
+                 placeholder="Search..."
+                 #input
+                 name="input"
+                 (keyup)="search( input.value )">
+
+          <a [routerLink]="['/newitem', '/listitem']" class="new-element-button">
+              <img src="../../../../../assets/img/icons/items.png" alt="">
+              <p>New</p>
+          </a>
+
+      </div>
+
+  </div>

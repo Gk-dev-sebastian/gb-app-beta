@@ -1,0 +1,159 @@
+<div class="header-box-container" style="margin-top: 25px;">
+    <div class="box-title">
+        <h2>STUDENT</h2>
+    </div>
+</div>
+
+<div class="body-box-container">
+
+    <form   [formGroup]="studentForm"
+            (ngSubmit)="addNew( studentForm )"
+            class="main-form">
+
+        <div class="form-double-content">
+
+            <div class="form-left-box">
+
+                <div class="form-control">
+                    <input type="text"
+                           placeholder="Name"
+                           name="name"
+                           formControlName="name"
+                           required>
+                </div>
+
+                <div class="form-control">
+                    <input type="text"
+                           placeholder="Lastname"
+                           name="lastname"
+                           formControlName="lastname"
+                           required>
+                </div>
+
+                <div class="form-control-number">
+                        <label for="age">Age:</label>
+                        <input type="number"
+                               min="0"
+                               name="age"
+                               formControlName="age"
+                               #age >
+                </div>
+
+                <div class="form-control-select">
+
+                        <label for="rank">Rank:</label>
+                        <select name="rank"
+                                id=""
+                                formControlName="rank"
+                                *ngIf=" age.value < 16 ">
+
+                                <option value="" disabled>Choose a Belt Rank </option>
+                                <option *ngFor="let belt of kRank" [ngValue]="belt.belt">
+                                    {{ belt.belt }}
+                                </option>
+
+                        </select>
+                        <select name="rank"
+                                id=""
+                                formControlName="rank"
+                                *ngIf=" age.value >= 16 ">
+
+                                <option value="" disabled>Choose a Belt Rank </option>
+                                <option *ngFor="let belt of aRank" [ngValue]="belt.belt">
+                                    {{ belt.belt }}
+                                </option>
+
+                        </select>
+
+                </div>
+
+                <div class="form-control-select">
+
+                        <label for="category">Category:</label>
+                        <select name="category"
+                                id=""
+                                formControlName="category"
+                                *ngIf="age.value < 18">
+                                <option value="" disabled>Choose a Category </option>
+                                <option *ngFor="let categoria of kCategories" [ngValue]="categoria.name">
+                                    {{ categoria.name }} {{ categoria.age }}
+                                </option>
+
+                        </select>
+                        <select name="category"
+                                id=""
+                                formControlName="category"
+                                *ngIf="age.value >= 18">
+                                <option value="" disabled>Choose a Category </option>
+                                <option *ngFor="let categoria of aCategories" [ngValue]="categoria.name">
+                                    {{ categoria.name }} {{ categoria.age }}
+                                </option>
+
+                        </select>
+
+
+                </div>
+
+                <div class="form-control-select">
+
+                        <label for="category">Class:</label>
+                        <select name="class"
+                                formControlName="class"
+                                *ngIf="age.value >= 18">
+                                <option value="" disabled>Choose a Class </option>
+                                <option *ngFor="let class of aClasses" [ngValue]="class.name">
+                                    {{ class.name }}
+                                </option>
+
+                        </select>
+                        <select name="class"
+                                formControlName="class"
+                                *ngIf="age.value < 18">
+                                <option value="" disabled>Choose a Class </option>
+                                <option *ngFor="let class of kClasses" [ngValue]="class.name">
+                                    {{ class.name }}
+                                </option>
+
+                        </select>
+                </div>
+
+                <div class="form-control">
+                    <input type="email"
+                        placeholder="Email"
+                        formControlName="email"
+                        name="email">
+                </div>
+
+            </div>
+
+            <div class="form-right-box">
+
+                <div class="form-control upload-box">
+
+                    <img *ngIf="imgTemp" [src]="imgTemp" alt="">
+
+                    <label for="input-file" class="input-file">Select photo</label>
+
+                    <input type="file"
+                           name="student-photo"
+                           id="input-file"
+                           (change)="handlerImage( $event.target.files[0] )"
+                           >
+                </div>
+
+            </div>
+
+        </div>
+
+        <input type="submit"
+               value="Save"
+               class="red-button">
+
+
+    </form>
+
+</div>
+
+<a [routerLink]="[origin]" class="icon-button float-button">
+  <img src="../../../../../assets/img/icons/back.png" alt="">
+</a>

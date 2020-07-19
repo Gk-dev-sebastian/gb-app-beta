@@ -1,0 +1,42 @@
+
+<cdk-virtual-scroll-viewport itemSize="10" class="table-scroll-items">
+  <table>
+      <thead>
+          <tr>
+              <th>Person</th>
+              <th>Item</th>
+              <th>Status</th>
+              <th>Qty</th>
+              <th>Total</th>
+              <th>Date</th>
+          </tr>
+      </thead>
+
+      <tbody *ngIf="orders">
+          <ng-container *cdkVirtualFor="let order of orders">
+          <tr [routerLink]="['/order/', order.id ]">
+                  <td>
+                      {{ order.person.name }}
+                      {{ order.person.lastname }}
+                  </td>
+                  <td>
+                      {{ order.item.product }}
+                      {{ order.item.brand }}
+                      {{ order.item.model }}
+                      {{ order.item.color }}
+                      {{ order.item.size }}
+                  </td>
+                  <td> {{ order.status }} </td>
+                  <td> {{ order.orderQty }} </td>
+                  <td> ${{ order.totalOrder | number: '1.1-2' }} </td>
+                  <td> {{ order.dateMade }} </td>
+          </tr>
+          </ng-container>
+      </tbody>
+  </table>
+
+  <div *ngIf="orders.length == 0" class="empty-list">
+    This list is empty for now.
+  </div>
+
+  </cdk-virtual-scroll-viewport>
